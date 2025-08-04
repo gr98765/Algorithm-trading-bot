@@ -1,0 +1,16 @@
+The project includes a basic RSI crossover strategy tested using historical data fetched via the Kotak API. Visualization and interpretation of buy/sell signals are included.
+
+How the function works:
+It calculates the end date as the current date and time, and then the start date as one day before the end date.
+The function then calls a hypothetical historical_data() function to retrieve historical price data for the specified symbol, start date, end date, and interval. This data is stored in a DataFrame (df).
+The columns of the DataFrame are renamed to match the expected format (‘Date’, ‘Open’, ‘High’, ‘Low’, ‘Close’, ‘Volume’).
+Using the ta library, the function calculates the RSI (Relative Strength Index) and ATR (Average True Range) based on the closing prices.
+It initializes a new column called ‘crossover_signal’ in the DataFrame and sets all values to 0.
+The function identifies points where the RSI crosses above or below the threshold of 50 and sets the corresponding ‘crossover_signal’ values to 1 or -1, respectively, indicating buy or sell signals.
+Finally, it converts the ‘Date’ column to the desired format and returns the DataFrame containing the historical data along with the RSI signals.
+
+
+Setting and Adjusting RSI Indicator
+There are two ways to set up this indicator. The easiest way is to click the tab ‘List of Indicators’ located on the upper panel of the terminal and select ‘Oscillators’ – ‘Relative Strength Index’.
+Another option is to choose ‘Insert’ – ‘Indicators’ – ‘Oscillators’ – ‘Relative Strength Index’.
+Instrument configuration window will open before the indicator is set in the chart. This window allows you to configure the indicators parameters. The main parameter is the period; It defines the number of price values taken into consideration at plotting the main indicator’s line. The shorter the period, the steeper indicator’s chart movements will be. This parameter is set to 14 by default, and this setting is considered optimal in most cases. You can also adjust the style settings, like line colour and weight. By using another tab of configuration window, you can change parameters of the levels from 30 and 70 to 20 and 80. You can also add new levels should your  strategy require so.
